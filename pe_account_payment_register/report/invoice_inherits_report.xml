@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <template id="payment_method_invoice_reports_inherits" inherit_id="account.report_invoice_document">
+            <xpath expr="//i[hasclass('oe_form_field','text-right','oe_payment_label')]/t" position="after">
+                par <t t-esc="payment_vals['journal_name']"/>
+            </xpath>
+            <xpath expr="//t[@t-foreach='payments_vals']/tr" position="after">
+                <!--  -->
+                <t t-if="payment_vals['journal_name'] == 'Chèques' and payment_vals['cheque_number']">
+                    <tr>
+                        <td>
+                            <i class="oe_form_field text-right oe_payment_label">Numéros Chèque</i>
+                        </td>                                    
+                        <td class="text-right">                                
+                            <span t-esc="payment_vals['cheque_number']"/>
+                        </td>                               
+                    </tr>
+                </t>
+            </xpath>
+        </template>
+    </data>
+</odoo>
