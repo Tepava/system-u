@@ -1,6 +1,9 @@
 # -*- coding: utf-8 -*-
+import logging
 
 from odoo import models, fields,tools , api
+
+_logger = logging.getLogger(__name__)
 
 class ResConfigSettings(models.TransientModel):
     _inherit = 'res.config.settings'
@@ -23,6 +26,7 @@ class ResConfigSettings(models.TransientModel):
             values['bg_image'] = self.env.user.company_id.logo
         else:
             values['bg_image'] = image
+        _logger.error('Values : %s' % values)
         return values
         
     
