@@ -8,6 +8,7 @@
     'description': """
         Pacific-ERP developpement on HR module
     """,
+    'license': "LGPL-3",
 
     'author': "Pacific-ERP",
     'website': "https://www.pacific-erp.com",

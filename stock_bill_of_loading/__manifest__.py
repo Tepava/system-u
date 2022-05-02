@@ -6,6 +6,7 @@
     'description': """
     """,
     'author': "Digital Techno.Net",
+    'license': "LGPL-3",
     'category': 'Stock',
     'version': '1.0.2',
     'depends': ['stock'],

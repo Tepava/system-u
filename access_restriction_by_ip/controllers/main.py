@@ -33,7 +33,7 @@ class Home(main.Home):
         main.ensure_db()
         request.params['login_success'] = False
         if request.httprequest.method == 'GET' and redirect and request.session.uid:
-            return http.redirect_with_hash(redirect)
+            return request.redirect(redirect)
 
         if not request.uid:
             request.uid = odoo.SUPERUSER_ID
@@ -62,7 +62,7 @@ class Home(main.Home):
                                 request.params[
                                     'password'])
                             request.params['login_success'] = True
-                            return http.redirect_with_hash(
+                            return request.redirect(
                                 self._login_redirect(uid, redirect=redirect))
                         except odoo.exceptions.AccessDenied as e:
                             request.uid = old_uid
@@ -79,7 +79,7 @@ class Home(main.Home):
                                                            request.params[
                                                                'password'])
                         request.params['login_success'] = True
-                        return http.redirect_with_hash(
+                        return request.redirect(
                             self._login_redirect(uid, redirect=redirect))
                     except odoo.exceptions.AccessDenied as e:
                         request.uid = old_uid
