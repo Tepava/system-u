@@ -9,7 +9,7 @@
     'license': "LGPL-3",
     'category': 'Stock',
     'version': '1.0.1',
-    'depends': ['sale', 'stock_bill_of_loading'],
+    'depends': ['sale', 'stock_bill_of_loading','mrp'],
     'data': [
     ],
     'auto_install': True,
