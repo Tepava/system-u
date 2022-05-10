@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <data>
+        <!-- Template de base -->
+        <template id="event_ticket_registration_report_inherit" inherit_id="event.event_registration_report_template_badge">
+            <!-- modification du style de la div pour remettre droit et mettre la bordure à droite -->
+            <xpath expr="//div[hasclass('row')]/div[1]" position="attributes">
+                <attribute name="style" separator=";" add="border-right:1px dashed black;" remove="border-left:1px dashed black;-webkit-transform:rotate(180deg);"/>
+            </xpath>
+            
+            <!-- ajout du logo te farenatura -->
+            <xpath expr="//div[hasclass('row')]/div[1]/div[1]/div[1]/h5[2]" position="replace">
+                <img src="/pe_customs/static/src/img/image_rogner.png" style="width:150px;padding-bottom:30px;"/>
+            </xpath>
+        </template>
+        
+        <!-- Template badge -->
+        <template id="event_ticket_type_report_inherit" inherit_id="event_sale.event_registration_report_template_badge">
+            <!-- h3 du text pour le type de billet -->
+            <xpath expr="//div[@t-if='o.event_ticket_id']/div/h3" position="attributes">
+                <attribute name="style" separator=";" add="padding-top:15px;"/>
+            </xpath>
+        </template>
+        
+        <!-- Template code barre -->
+        <template id="event_ticket_badge_report_inherit" inherit_id="event_barcode.report_registration_badge">
+            <!-- ajustement du code barre pour qu'il rentre dans le cadre -->
+            <xpath expr="//img[hasclass('barcode')]" position="attributes">
+                <attribute name="style" separator=";" add="width:305px;padding-top:10px;"/>
+            </xpath>
+        </template>
+    </data>
+</odoo>
